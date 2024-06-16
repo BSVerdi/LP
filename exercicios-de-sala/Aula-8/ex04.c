@@ -4,22 +4,18 @@
 int main() {
     char tabuleiro[3][3]; 
     int i, j, jogada = 0, fim = 1;
+    // impressão do tabuleiro limpo
     for (i = 0; i < 3; i++) {
-        tabuleiro[0][i] = ' ';
-        tabuleiro[1][i] = ' ';
-        tabuleiro[2][i] = ' ';
-    }
-    while (fim && jogada <= 9) {
-        // impressão do tabuleiro
-        for (i = 0; i < 3; i ++) {
             for (int j = 0; j < 3; j++) {
+                tabuleiro[i][j] = ' ';
                 printf(" %c ", tabuleiro[i][j]);
                 if (j < 2) 
                     printf("|");
             }
             if (i < 2)
                 printf("\n---+---+---\n");
-        }
+    }
+    while (fim && jogada <= 9) {
         // Jogada a ser feita
         if (jogada < 9) {
             while (1) {
@@ -43,9 +39,20 @@ int main() {
                     }
                 }
             }
-            if (jogada > 3 && jogada < 9) {    
-                // checagem  de vitoria na horizontal
+            // impressão do tabuleiro
+            for (i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    printf(" %c ", tabuleiro[i][j]);
+                    if (j < 2) 
+                        printf("|");
+                }
+                if (i < 2)
+                    printf("\n---+---+---\n");
+            }
+            // checagem de vitorias
+            if (3 < jogada) {    
                 for (i = 0; i < 3; i ++) {
+                    // checagem  de vitoria na horizontal
                     if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
                         if (tabuleiro[i][0] == 'X') {
                             printf("\nO jogador X ganhou!\n");
@@ -57,9 +64,7 @@ int main() {
                             break;
                         }
                     }
-                }
-                // checagem na vertical
-                for (i = 0; i < 3; i++) {
+                    // checagem na vertical
                     if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i]) {
                         if (tabuleiro[0][i] == 'X') {
                             printf("\nO jogador X ganhou!\n");
@@ -90,7 +95,7 @@ int main() {
                         fim = 0;
                     }
                 }
-            }
+            } 
         } else {
             printf("\nO jogo deu velha!\n");
         }
@@ -99,3 +104,4 @@ int main() {
     
     return 0;
 }
+    
