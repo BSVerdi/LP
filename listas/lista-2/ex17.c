@@ -34,7 +34,7 @@ int main() {
             }
         }    
     }
-
+    
     printf("Vetor: [ ");
     for(i=0; i<11; i++)
         printf("%d ",vetor[i]);
