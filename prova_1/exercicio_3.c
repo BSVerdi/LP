@@ -10,8 +10,8 @@ int main() {
         if (3 <= x && x < 6) {
             printf("h(%d) = %d", x, x * 2);
         } else {
-            a = (x - 2) * 2;
-            b = (x - 1) * 2;
+            a = 8;
+            b = 10;
             for(int i=0; i<x - 5; i++) {
                 res = a + b;
                 a = b;
