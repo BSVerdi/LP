@@ -2,8 +2,7 @@
 
 int contador(char frase[]) {
     int contagem=0;
-    for (int i=0; frase[i] != '\0'; i++)
-        contagem++;
+    for (int i=0; frase[i] != '\0'; i++) contagem++;
     return contagem;
 }
 

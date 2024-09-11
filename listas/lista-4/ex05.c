@@ -1,38 +1,32 @@
 #include<stdio.h>
 
-void palindromo(char frase[]) {
-    int tamanho_frase=0, tamanho_frase_sem_espaco=0, i, aux=0;
-    char frase_sem_espaco[250];
-
-    for (i=0; frase[i] != '\0'; i++)
-        tamanho_frase++;
-
-    for (i=0; i<tamanho_frase; i++) {
-        if (frase[i] == '\n')
-            i++;
-        frase_sem_espaco[aux] = frase[i];
-        tamanho_frase_sem_espaco++;
-        aux++;
+void palindromo(char frase[], int tamanho_frase) {
+    int i=0, j = tamanho_frase-1, valido = 1;
+    while (i<tamanho_frase) {
+        if (frase[i] == ' ') i++;
+        else if (frase[j] == ' ') j--;
+        if (!(frase[i] == frase[j]) && valido == 1) {
+            valido=0;
+            break;
+        }
+        i++;
+        j--;
     }
-    
-    aux=0;
-
-    for (int i=0; i<tamanho_frase_sem_espaco; i++) {
-        if (frase_sem_espaco[i] == frase_sem_espaco[(tamanho_frase_sem_espaco-1) - i])
-            aux++;
-    }
-    if (aux==tamanho_frase_sem_espaco) printf("A frase e um palindromo");
+    if (valido) printf("A frase e um palindromo");
     else printf("A frase nao e um palindromo");
 }
 
 
 int main() {
     char frase[250];
+    int tamanho_frase=0;
 
     printf("Insira a frase: ");
     gets(frase);
 
-    palindromo(frase);
+    for (int i=0; frase[i] != '\0'; i++) tamanho_frase++;
+
+    palindromo(frase, tamanho_frase);
 
     return 0;
 }
