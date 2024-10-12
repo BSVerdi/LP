@@ -6,7 +6,7 @@ void extrator(char frase[], int pos_inicial, int tamanho_sub_frase) {
     for (int i=pos_inicial; i<(pos_inicial + tamanho_sub_frase); i++) {
         sub_frase[j] = frase[i];
         j++;
-    }sql
+    }
     puts(sub_frase);
 }
 
